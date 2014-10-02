@@ -1,0 +1,49 @@
+
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+
+			<div ng-include src="mainmenu"></div>
+		</div> 
+
+		<div class="checklist_cont_feedback_wrap">
+			<div class="col-md-12 checklist_cont3">
+				<div class="checklist_cont3_left"><p>REPORT</p></div>
+				<div class="checklist_cont3_right">
+					<ul>
+						<li>
+							<p>{{pageContent.pagetitle}}</p>
+						</li>
+					</ul>
+					<div class="textarea repot_tmplte" ng-show="pageContent.altPage == 'report_template'">
+						<div ng-include src="reportTemplate"></div>
+					</div>
+					<div class="textarea freetext" ng-show ="pageContent.altPage == 'freetext_report'">
+						<div id="freetextSave" ng-bind-html="pageContent.jobinfo['freetext'].text"></div>
+						
+					</div>
+
+					<div class="feedback_bottom_panel ">
+						<div class="signin" ng-click="generateTemplate();" ng-show="pageContent.altPage == 'report_template'">NEXT</div>
+						
+						<div class="signin" ng-show="pageContent.altPage == 'freetext_report'" ng-click="saveReport()">SUBMIT</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->
+		
+<script type="text/javascript">
+	$('.feedback_bottom_panel .signin').on('touchstart mousedown', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.feedback_bottom_panel .signin').on('touchcancel mouseup', function(){
+		$(this).removeClass('activeNext');
+	})
+</script>

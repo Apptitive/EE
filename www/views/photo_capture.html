@@ -1,0 +1,47 @@
+			<div class="container-fluid">
+				<div class="row content_box content_box_checklist">
+
+					<div class="header_bottom_part">
+
+						<div ng-include src="mainmenu"></div>
+					</div> 
+
+					<div class="checklist_cont_feedback_wrap">
+						<div class="col-md-12 checklist_cont3">
+							<div class="checklist_cont3_left"><p>CHECKLIST</p></div>
+							<div class="checklist_cont3_right">
+								<ul>
+									<li>
+										<p>Photo Capture</p>
+									</li>
+								</ul>
+								<div class="capturedImg">
+									<div class="" id="imageulr1">
+									{{pageContent.jobinfo['photo'].arr}}
+										<div ng-repeat="i in pageContent.jobinfo['photo'].arr" class="img">
+											<img src="{{pageContent.jobinfo['photo'].arr[i].imageUrl}}">
+											<div class="removeImg" onclick="removeImg(this)"></div>
+										</div>
+										<!-- <div class="img"><img src="images/map.jpg"><div class="removeImg"
+										onclick="removeImg(this)"></div></div>
+										<div class="img"><img src="images/logo.png"><div class="removeImg" onclick="removeImg(this)"></div></div> -->
+									</div>
+									
+								</div>
+
+								<div class="feedback_bottom_panel bottom_panel">
+									<div class="signin" ng-click="saveImages();showEstimation('client_discuss')" >Next</div></a>
+									<div class="signin" ng-click="loadPhoto()"  >Browse</div>
+									<div class="signin"  ng-click="capturePhoto()" >Capture</div>
+									
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+
+
+				</div><!--row ends-->
+			</div><!--container ends-->
+		

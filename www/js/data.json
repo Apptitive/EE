@@ -1,0 +1,30 @@
+//dummy json 
+//geyallproceduraldocuments
+var localdata = {}
+localdata.proceduralDoc = [{
+	"DocumentId":"1","DocumentName":"Code of conduct 1","DocumentURL":"119.9.14.30:80/MobileAPI/ProceduralDocuments/ProceduralDocument.pdf","DocumentContent":"Document"
+	},{
+	"DocumentId":"2","DocumentName":"Code of conduct 2","DocumentURL":"119.9.14.30:80/MobileAPI/ProceduralDocuments/ProceduralDocument.pdf","DocumentContent":"Document"
+	},{
+	"DocumentId":"3","DocumentName":"Code of conduct 3","DocumentURL":"119.9.14.30:80/MobileAPI/ProceduralDocuments/ProceduralDocument.pdf","DocumentContent":"Document"
+	},{
+	"DocumentId":"4","DocumentName":"Code of conduct 4","DocumentURL":"119.9.14.30:80/MobileAPI/ProceduralDocuments/ProceduralDocument.pdf","DocumentContent":"Document"
+	}];
+localdata.noticDoc = [{"NoticeId":"1","NoticeName":"Notice Name 1","NoticeContent":"Notice Content 1","CreatedDate":"07-Sep-2014"},{"NoticeId":"2","NoticeName":"Notice Name 2","NoticeContent":"Notice Content 2","CreatedDate":"07-Sep-2014"},{"NoticeId":"3","NoticeName":"Notice Name 3","NoticeContent":"Notice Content 3","CreatedDate":"07-Sep-2014"},{"NoticeId":"4","NoticeName":"Notice Name 4","NoticeContent":"Notice Content 4","CreatedDate":"07-Sep-2014"}];
+
+
+localdata.jobsByDate = [{"JobId":10043876,"JobStatus":"Insured Contacted and Inspection Confirmed","InspectionStatus":"Confirmed","JobSate":"VIC","InspectionDate":"/Date(1407708000000)/","Location":"(-37.850972, 145.015129)"},{"JobId":10043924,"JobStatus":"Insured Contacted and Inspection Confirmed","InspectionStatus":"Confirmed","JobSate":"VIC","InspectionDate":"/Date(1407708000000)/","Location":"(-37.79346, 145.09952399999997)"},{"JobId":10043987,"JobStatus":"Building works completed","InspectionStatus":"Completed","JobSate":"VIC","InspectionDate":"/Date(1408312800000)/","Location":"(-37.849805, 145.05177500000002)"},{"JobId":10044013,"JobStatus":"Work Orders Raised","InspectionStatus":"Completed","JobSate":"VIC","InspectionDate":"/Date(1410386400000)/","Location":"(-37.794758, 145.02333899999996)"}];
+
+localdata.job = {"InsuredSurname": "DHA",
+"InsuredSuburb": "BARTON",
+"LossType": "Unknown",
+"InspectionDate": "/Date(1404770400000)/",
+"DateTimeOfVisit": "08-Jul-2014",
+"Location": "(-37.002219, 145.03595199999995)",
+"ClaimNumber": "MITM-1211694",
+"ClientName": " Dha ",
+"ClientPhone": "0000000000",
+"InsurerPhone": "139 342",
+"JobCreatedBy": "caitlyn.cornish"
+}
+localdata.searchedJob = [{"JobID": 10043422,"ClaimNumber": "MITM-1211694","ClientName": " Dha ","Suburb": "PUCKAPUNYAL","PercentageCompleted": "50%"}]

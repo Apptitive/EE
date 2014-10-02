@@ -1,0 +1,43 @@
+
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+
+			<div ng-include src="mainmenu"></div>
+		</div> 
+
+		<div class="checklist_cont_feedback_wrap">
+			<div class="col-md-12 checklist_cont3 ">
+				<div class="checklist_cont3_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right  checklist_cont3_right30">
+					<ul>
+						<li>
+							<p>Client Discussion</p>
+						</li>
+					</ul>
+					<div class="textarea">
+						<textarea name="feedback" ng-model="pageContent.jobinfo['clientdiscussion'].text" placeholder="Provide your feedback here"></textarea>
+					</div>
+
+					<div class="feedback_bottom_panel">
+						
+						<div class="signin" ng-click=" saveClientdiscussion();showEstimation('maintenance')" >Next</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->
+<script type="text/javascript">
+	$('.bottom_panel .signin').on('mousedown touchstart', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.bottom_panel .signin').on('mouseup touchcancel', function(){
+		$(this).removeClass('activeNext');
+	})
+</script>

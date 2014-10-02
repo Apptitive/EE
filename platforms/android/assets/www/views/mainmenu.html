@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="header_bottom_part_left_cont">
+			<span  ng-click="showJobDetail(pageContent.jobid)" ng-class="{'active':pageContent.page!='insurer'}" >ESTIMATION</span>
+			<span  ng-click="showInsurer()" ng-class="{'active':pageContent.page=='insurer'}">INSURER DOCUMENT</span>
+			<!-- <a href="#/home/jobdetail/sow" ng-class="{active: pageContent.subpage=='sow'}">SOW DOCUMENT</a> -->
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="header_bottom_part_right_cont">
+			<div class="col-md-4 header_bottom_part_right_cont_left">
+				<p><span>Insured Surname</span>:&nbsp;{{pageContent.jobinfo.InsuredSurname}}</p>
+				<p><span>Insured Suburb</span>:&nbsp;{{pageContent.jobinfo.InsuredSuburb}}</p>
+				<p><span>Insurer Phone</span>:&nbsp;{{pageContent.jobinfo.InsurerPhone}}</p>
+			</div>
+			<div class="col-md-4 header_bottom_part_right_cont_right">
+				
+				<p><span>ClientName</span>:&nbsp;{{pageContent.jobinfo.ClientName}}</p>
+				<p class="p1"><span>Loss type</span>:&nbsp;{{pageContent.jobinfo.LossType}}</p>
+				<p><span>Job CreatedBy</span>:&nbsp;{{pageContent.jobinfo.JobCreatedBy}}</p>
+			</div>
+			<!-- <div class="col-md-4 header_bottom_part_right_cont_right">
+				
+				
+				<p><span>Date of visit</span>:&nbsp;{{pageContent.jobinfo.DateTimeOfVisit}}</p>
+				
+				<p><span>ClientPhone</span>:&nbsp;{{pageContent.jobinfo.ClientPhone}}</p>
+			</div> -->
+		</div>
+	</div>
+
+	<div class="col-md-12 progressbar">
+		<div class="empty"></div>
+		<div class="progresss_right">
+			<!-- <div class="pr1 riskhazard"></div>
+			<div class="pr2 assesment"></div>
+			<div class="pr3 photo"></div>
+			<div class="pr4 clientdiscussion"></div>
+			<div class="pr5 maintenance"></div>
+			<div class="pr6 lineitem"></div>
+			<div class="pr7 report"></div> -->
+			<!-- <div class="pr8"></div> -->
+		</div>
+		<div class="number">--</div>
+	</div>
+</div>
+<script type="text/javascript">
+	/*$('.header_bottom_part_left_cont span').on('mousedown touchstart',function(e){
+		$('.header_bottom_part_left_cont so').removeClass('active');
+		e.preventDefault();
+		$(this).addClass('active');
+	})*/
+</script>

@@ -1,0 +1,17 @@
+<div>
+	<select ng-model="water_report" ng-init="water_report = 1">
+		<option value="1" >Select a type</option>
+		<option value="Burst_Pipe">Water Burst Pipe</option>
+		<option value="Shower_Recess">Water Shower Recess</option>
+		<option value="Stormwater">Water Stormwater</option>
+	</select>
+</div>
+<div ng-show="water_report == 'Burst_Pipe'">
+	<div ng-include src="'views/report_template/water_burst_pipe.html'"></div>
+</div>
+<div ng-show="water_report == 'Shower_Recess'">
+	<div ng-include="'views/report_template/water_shower_recess.html'"></div>
+</div>
+<div ng-show="water_report == 'Stormwater'">
+	<div ng-include src="'views/report_template/water_stromwater.html'"></div>
+</div>

@@ -1,0 +1,355 @@
+
+<div class="container-fluid" ng-controller="risk_hazardCtrl">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+
+			<div ng-include src="mainmenu"></div>
+		</div> 
+
+		<div class="checklist_cont_feedback_wrap">
+			<div class="col-md-12 checklist_cont3">
+				<div class="checklist_cont3_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right">
+					
+					<div class="riskhazard">
+						<ul>
+							<li>
+								<p>Risk and Hazard Identification</p>
+							</li>
+						</ul>
+						<div class="col-md-4">
+							<div class="formgroup2">
+								<p>{{pageContent.form_riskhazard.qsn1.title}}</p>
+								<p>
+									<span><input type="radio" id="check1" value="True" ng-model="pageContent.form_riskhazard.qsn1.ans"  name="radio1" >&nbsp;<label for="check1">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check2" value="False" ng-model="pageContent.form_riskhazard.qsn1.ans" name="radio2">&nbsp;<label for="check2">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{pageContent.form_riskhazard.qsn2.title}}</p>
+								<p>
+									<span><input type="radio" id="check3" value="High" ng-model="pageContent.form_riskhazard.qsn2.ans"  name="radio3">&nbsp;<label for="check3">High</label></span>
+									<span></span>
+									<span><input type="radio" id="check4" value="Medium" ng-model="pageContent.form_riskhazard.qsn2.ans"  name="radio4">&nbsp;<label for="check4">Medium</label></span>
+									<span></span>
+									<span ng-show="pageContent.form_riskhazard.qsn1.ans != 'True'"><input  type="radio" id="check5" value="Low" ng-model="pageContent.form_riskhazard.qsn2.ans"  name="radio5">&nbsp;<label for="check5">Low</label></span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="formgroup2">
+								<p>{{pageContent.form_riskhazard.qsn3.title}}</p>
+								<p>
+									<span><input type="radio" id="check100" value="True" ng-model="pageContent.form_riskhazard.qsn3.ans"  name="radio100">&nbsp;<label for="check100">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check101" value="False" ng-model="pageContent.form_riskhazard.qsn3.ans"  name="radio101">&nbsp;<label for="check101">No</label></span>
+								</p>
+							</div>	
+							<div class="formgroup2">
+								<p>{{pageContent.form_riskhazard.qsn6.title}}</p>
+								<p>
+									<span><input type="radio" id="check6" value="True" ng-model="pageContent.form_riskhazard.qsn6.ans"  name="radio6">&nbsp;<label for="check6">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check7" value="False" ng-model="pageContent.form_riskhazard.qsn6.ans"  name="radio7">&nbsp;<label for="check7">No</label></span>
+								</p>
+							</div>							
+						</div>
+						<div class="col-md-4">
+							<div class="formgroup2" ng-show="pageContent.form_riskhazard.qsn3.ans == 'True'">
+								<p>{{pageContent.form_riskhazard.qsn4.title}}</p>
+								<p>
+									<span><input type="radio" id="check8" value="True" ng-model="pageContent.form_riskhazard.qsn4.ans"  name="radio8">&nbsp;<label for="check8">Yes</label></span>
+									<span></span>
+									<span ><input type="radio" id="check8" value="False" ng-model="pageContent.form_riskhazard.qsn4.ans"  name="radio8">&nbsp;<label for="check8">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2" ng-show="pageContent.form_riskhazard.qsn3.ans == 'True'">
+								<p>{{pageContent.form_riskhazard.qsn5.title}}</p>
+								<p>
+									<span><input type="radio" id="check9"  value="True" ng-model="pageContent.form_riskhazard.qsn5.ans"  name="radio9">&nbsp;<label for="check9">Yes</label></span>
+									<span></span>
+									<span ><input type="radio" id="check10"   value="False" ng-model="pageContent.form_riskhazard.qsn5.ans" name="radio10">&nbsp;<label for="check10">No</label></span>
+								</p>
+							</div>
+							
+						</div>
+															
+						<ul>
+							<li id="assessmentDiv">
+								<p>Assessment Items:</p>
+							</li>
+						</ul>
+						<div class="col-md-4 assesment">
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn1.title}}</p>
+								<p>
+									<span><input type="radio" id="check13" value="True" ng-model="form_assesment.qsn1.ans"  name="radio13">&nbsp;<label for="check13">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check14" value="False" ng-model="form_assesment.qsn1.ans" name="radio14">&nbsp;<label for="check14">No</label></span>
+								</p>
+							</div>
+							
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn4.title}}</p>
+								<p>
+									<span><input type="radio" id="check15" value="True" ng-model="form_assesment.qsn4.ans"  name="radio15">&nbsp;<label for="check15">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check16" value="False" ng-model="form_assesment.qsn4.ans" name="radio16">&nbsp;<label for="check16">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn7.title}}</p>
+								<p>
+									<span><input type="radio" id="check17" value="True" ng-model="form_assesment.qsn7.ans"  name="radio17">&nbsp;<label for="check17">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check18" value="False" ng-model="form_assesment.qsn7.ans" name="radio18">&nbsp;<label for="check18">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn10.title}}</p>
+								<p>
+									<span><input type="radio" id="check19" value="True" ng-model="form_assesment.qsn10.ans"  name="radio19">&nbsp;<label for="check19">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check20" value="False" ng-model="form_assesment.qsn10.ans" name="radio20">&nbsp;<label for="check20">No</label></span>
+								</p>
+							</div>
+							
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn13.title}}</p
+								<p>
+									<span><input type="radio" id="check37" value="True" ng-model="form_assesment.qsn13.ans" name="radio37">&nbsp;<label for="check37">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check38" value="False" ng-model="form_assesment.qsn13.ans"  name="radio38">&nbsp;<label for="check38">No</label></span>
+								</p>
+							</div>
+							<div >
+								<div class="formgroup2" ng-show="form_assesment.qsn13.ans=='True'">
+									<p>{{form_assesment.qsn13_1.title}}</p>
+									<p>
+										<span><input type="radio" id="check57" value="True" ng-model="form_assesment.qsn13_1.ans"  name="radio57">&nbsp;<label for="check57">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check58" value="False" ng-model="form_assesment.qsn13_1.ans" name="radio58">&nbsp;<label for="check58">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2" ng-show="form_assesment.qsn13.ans=='True'"> 
+									<p>{{form_assesment.qsn13_2.title}}</p>
+									<p>
+										<span><input type="radio" id="check59" value="True" ng-model="form_assesment.qsn13_2.ans"  name="radio59">&nbsp;<label for="check59">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check60" value="False" ng-model="form_assesment.qsn13_2.ans" name="radio60">&nbsp;<label for="check60">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2" ng-show="form_assesment.qsn13.ans=='True'">
+									<p>{{form_assesment.qsn13_3.title}}</p>
+									<p>
+										<span><input type="radio" id="check61" value="True" ng-model="form_assesment.qsn13_3.ans"  name="radio61">&nbsp;<label for="check61">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check62" value="False" ng-model="form_assesment.qsn13_3.ans" name="radio62">&nbsp;<label for="check62">No</label></span>
+									</p>
+								</div>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn17.title}}</p>
+								<p>
+									<span><input type="radio" id="check45" value="True" ng-model="form_assesment.qsn17.ans"  name="radio45">&nbsp;<label for="check45">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check46" value="False" ng-model="form_assesment.qsn17.ans" name="radio46">&nbsp;<label for="check46">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn14_1.title}}</p>
+								<p>
+									<span><input type="text" id="textAddress" value="True" ng-model="form_assesment.qsn14_1.ans"  name="address"></span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-4 assesment">
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn2.title}}</p>
+								<p>
+									<span><input type="radio" id="check21" value="True" ng-model="form_assesment.qsn2.ans"  name="radio21">&nbsp;<label for="check21">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check22" value="False" ng-model="form_assesment.qsn2.ans" name="radio22">&nbsp;<label for="check22">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn5.title}}</p>
+								<p>
+									<span><input type="radio" id="check23" value="True" ng-model="form_assesment.qsn5.ans"  name="radio23">&nbsp;<label for="check23">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check24" value="False" ng-model="form_assesment.qsn5.ans" name="radio24">&nbsp;<label for="check24">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn8.title}}</p>
+								<p>
+									<span><input type="radio" id="check25" value="True" ng-model="form_assesment.qsn8.ans"  name="radio25">&nbsp;<label for="check25">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check26" value="False" ng-model="form_assesment.qsn8.ans" name="radio26">&nbsp;<label for="check26">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn11.title}}</p>
+								<p>
+									<span><input type="radio" id="check33" value="True" ng-model="form_assesment.qsn11.ans"  name="radio33">&nbsp;<label for="check33">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check34" value="False" ng-model="form_assesment.qsn11.ans"  name="radio34">&nbsp;<label for="check34">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn14.title}}</p>
+								<p>
+									<span><input type="radio" id="check39" value="True" ng-model="form_assesment.qsn14.ans"  name="radio39">&nbsp;<label for="check39">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check40" value="False" ng-model="form_assesment.qsn14.ans" name="radio40">&nbsp;<label for="check40">No</label></span>
+								</p>
+							</div>
+
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn15.title}}</p>
+								<p>
+									<span><input type="radio" id="check41" value="True" ng-model="form_assesment.qsn15.ans"  name="radio41">&nbsp;<label for="check41">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check42" value="False" ng-model="form_assesment.qsn15.ans" name="radio42">&nbsp;<label for="check42">No</label></span>
+								</p>
+							</div>
+							<div >
+								<div class="formgroup2" ng-show="form_assesment.qsn15.ans == 'True'">
+									<p>{{form_assesment.qsn15_1.title}}</p>
+									<p>
+										<span><input type="radio" id="check63" value="True" ng-model="form_assesment.qsn15_1.ans"  name="radio63">&nbsp;<label for="check63">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check64" value="False" ng-model="form_assesment.qsn15_1.ans" name="radio64">&nbsp;<label for="check64">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2" ng-show="form_assesment.qsn15.ans == 'True'">
+									<p>{{form_assesment.qsn15_2.title}}</p>
+									<p>
+										<span><input type="radio" id="check65" value="True" ng-model="form_assesment.qsn15_2.ans"  name="radio65">&nbsp;<label for="check65">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check66" value="False" ng-model="form_assesment.qsn15_2.ans" name="radio66">&nbsp;<label for="check66">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2" ng-show="form_assesment.qsn15.ans == 'True'">
+									<p>{{form_assesment.qsn15_3.title}}</p>
+									<p>
+										<span><input type="radio" id="check67" value="True" ng-model="form_assesment.qsn15_3.ans"  name="radio67">&nbsp;<label for="check67">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check68" value="False" ng-model="form_assesment.qsn15_3.ans" name="radio68">&nbsp;<label for="check68">No</label></span>
+									</p>
+								</div>
+							</div>
+																					
+						</div>
+						<div class="col-md-4 assesment">	
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn3.title}}</p>
+								<p>
+									<span><input type="radio" id="check11" value="True" ng-model="form_assesment.qsn3.ans"  name="radio11">&nbsp;<label for="check11">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check12" value="False" ng-model="form_assesment.qsn3.ans" name="radio12">&nbsp;<label for="check12">No</label></span>
+								</p>
+							</div>	
+							
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn6.title}}</p>
+								<p>
+									<span><input type="radio" id="check70" value="True" ng-model="form_assesment.qsn6.ans"  name="radio70">&nbsp;<label for="check70">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check71" value="False" ng-model="form_assesment.qsn6.ans" name="radio71">&nbsp;<label for="check71">No</label></span>
+								</p>
+							</div>						
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn9.title}}</p>
+								<p>
+									<span><input type="radio" id="check29" value="True" ng-model="form_assesment.qsn9.ans"  name="radio29">&nbsp;<label for="check29">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check30" value="False" ng-model="form_assesment.qsn9.ans" name="radio30">&nbsp;<label for="check30">No</label></span>
+								</p>
+							</div>
+							<div ng-show="form_assesment.qsn9.ans == 'True'">
+								<div class="formgroup2">
+									<p>{{form_assesment.qsn9_1.title}}</p>
+									<p>
+										<span><input type="radio" id="check49" value="True" ng-model="form_assesment.qsn9_1.ans"  name="radio49">&nbsp;<label for="check49">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check50" value="False" ng-model="form_assesment.qsn9_1.ans" name="radio50">&nbsp;<label for="check50">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2">
+									<p>{{form_assesment.qsn9_2.title}}</p>
+									<p>
+										<span><input type="radio" id="check51" value="True" ng-model="form_assesment.qsn9_2.ans"  name="radio51">&nbsp;<label for="check51">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check52" value="False" ng-model="form_assesment.qsn9_2.ans" name="radio52">&nbsp;<label for="check52">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2">
+									<p>{{form_assesment.qsn9_3.title}}</p>
+									<p>
+										<span><input type="radio" id="check53" value="True" ng-model="form_assesment.qsn9_3.ans"  name="radio53">&nbsp;<label for="check53">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check54" value="False" ng-model="form_assesment.qsn9_3.ans" name="radio54">&nbsp;<label for="check54">No</label></span>
+									</p>
+								</div>
+								<div class="formgroup2">
+									<p>{{form_assesment.qsn9_4.title}}</p>
+									<p>
+										<span><input type="radio" id="check55" value="True" ng-model="form_assesment.qsn9_4.ans"  name="radio55">&nbsp;<label for="check55">Yes</label></span>
+										<span></span>
+										<span><input type="radio" id="check56" value="False" ng-model="form_assesment.qsn9_4.ans" name="radio56">&nbsp;<label for="check56">No</label></span>
+									</p>
+								</div>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn12.title}}</p>
+								<p>
+									<span><input type="radio" id="check35" value="True" ng-model="form_assesment.qsn12.ans"  name="radio35">&nbsp;<label for="check35">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check36" value="False" ng-model="form_assesment.qsn12.ans" name="radio36">&nbsp;<label for="check36">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn16.title}}</p>
+								<p>
+									<span><input type="radio" id="check43" value="True" ng-model="form_assesment.qsn16.ans"  name="radio43">&nbsp;<label for="check43">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check44" value="False" ng-model="form_assesment.qsn16.ans" name="radio44">&nbsp;<label for="check44">No</label></span>
+								</p>
+							</div>
+							<div class="formgroup2">
+								<p>{{form_assesment.qsn18.title}}</p>
+								<p>
+									<span><input type="radio" id="check48" value="True" ng-model="form_assesment.qsn18.ans"  name="radio48">&nbsp;<label for="check48">Yes</label></span>
+									<span></span>
+									<span><input type="radio" id="check69" value="False" ng-model="form_assesment.qsn18.ans" name="radio69">&nbsp;<label for="check69">No</label></span>
+								</p>
+							</div>
+							
+							
+						</div>
+
+
+
+					</div>
+
+					<div class="feedback_bottom_panel bottom_panel">						
+						<div class="signin" ng-click="saveFormData('riskhazard');showEstimation('photo_capture');">Next</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div><!--row ends-->
+</div><!--container ends-->
+<script type="text/javascript">
+	$('.bottom_panel .signin').on('mousedown touchstart', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.bottom_panel .signin').on('mouseup touchcancel', function(){
+		$(this).removeClass('activeNext');
+	})
+</script>

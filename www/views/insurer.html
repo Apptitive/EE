@@ -1,0 +1,39 @@
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+
+			<div ng-include src="mainmenu"></div>
+		</div> 
+
+		<div class="checklist_cont_feedback_wrap">
+			<div class="col-md-12 checklist_cont3">
+				<div class="checklist_cont3_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right">
+					<ul>
+						<li>
+							<p>Insurer Document</p>
+						</li>
+					</ul>
+					<div class="textarea">
+						<div class="col-md-6">
+						<ul class="box5_ul">
+							<li ng-repeat="doc in insurerDocuments" ng-click="open_remotefile(doc.DocumentURL)">
+									<img src="images/list_icon4.png">
+									<p>{{doc.DocumentName}}</p>
+							</li>									
+							
+						</ul>
+							
+						</div>									
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->

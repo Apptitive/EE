@@ -1,0 +1,95 @@
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+			<div ng-include src="mainmenu"></div>
+		</div>
+
+					
+		<div class="checklist_cont_wrap" ng-controller="jobdetailCtrl">
+			<div class="col-md-12 checklist_cont1">
+				<div class="checklist_cont1_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont1_right">
+					<ul>
+						
+							<li ng-click="showEstimation('riskhazard')">					
+								<img src="images/list_icon4.png">
+								Risk and Hazard Identification
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+								
+							</li>
+						
+						
+							<li ng-click="showEstimation('assessment')" > 				
+								<img src="images/list_icon4.png">
+								Assesment Items
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							
+							</li>
+						
+						
+							<li ng-click="showEstimation('photo_capture')">					
+								<img src="images/list_icon4.png">
+								Photo Capture
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+						
+							<li ng-click="showEstimation('client_discuss')">				
+								<img src="images/list_icon4.png">
+								Client Discussion
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+						
+							<li ng-click="showEstimation('maintenance')">					
+								<img src="images/list_icon4.png">
+								Maintenance Issues
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+						
+							<li  ng-click="showEstimation('line_items')">					
+								<img src="images/list_icon4.png">
+								Estimation Line Items
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+						
+							<li ng-click="showEstimation('po')" ng-show="pageContent.form_riskhazard.qsn3.ans=='True'"> 					
+								<img src="images/list_icon4.png">
+								PO Generation
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-12 checklist_cont2">
+				<div class="checklist_cont2_left"><p>REPORT</p></div>
+				<div class="checklist_cont2_right">
+
+					<ul>
+						
+							<li ng-click="showEstimation('report_template')">				
+								<img src="images/list_icon4.png">
+								Report Template
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>
+						
+						<!-- <a href="#freetext_report" ng-click="showEstimation('freetext_report')">
+							<li>				
+								<img src="images/list_icon4.png">
+								Free Text Report
+								<img src="images/small_arrow_right.png" class="list_right_arrow">
+							</li>			
+						</a>	 -->		
+					</ul>
+				</div>
+			</div>
+			<!-- jobdetail template -->
+		</div>						
+
+	</div><!--row ends-->
+</div><!--container ends-->

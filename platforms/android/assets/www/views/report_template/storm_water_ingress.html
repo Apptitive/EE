@@ -1,0 +1,87 @@
+
+<h4>STORM - WATER INGRESS</h4>
+<h4>Claimed Incident:</h4>
+<p id="ClaimedIncident">Water damage has been sustained to the insured’s property as a result of a storm event.</p>
+
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+<div id="BuildersAssessmentCause">Inspection completed by 
+	<input type="text" placeholder="Name" ng-model="reportForm.estimatorName"> on {{pageContent.jobinfo.DateTimeOfVisit}}  in the presence of 
+	<input type="text" placeholder="Name" ng-model="reportForm.clientName" >
+	<h4>Relationship:</h4>
+	<select id="" ng-model="reportForm.relation" ng-init="reportForm.relation = 1">
+		<option value="1" >The insured owner</option>
+		<option value="2">The real estate agent</option>
+		<option value="3">The tanent</option>
+		<option value="4">Family friend</option>
+		<option value="5">A relative of the insured</option>
+		<option value="6">Other</option>
+	</select>
+	<p ng-show ="reportForm.relation == '6'">Other: <input type="text" ng-model="reportForm.otherRelation"></p>
+</div>
+<span >
+	<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+	<select id="ResultantDamage" ng-model="reportForm.ResultantDamage" ng-init="reportForm.ResultantDamage = 1" >
+		<option value="1">bedroom</option>
+		<option value="2">living area</option>
+		<option value="3">entry</option>
+		<option value="4">hallway</option>
+		<option value="5">eaves</option>
+		<option value="6">btahroom</option>
+		<option value="7">laundry</option>
+		<option value="8">study</option>
+		<option value="9">extra</option>
+		<option value="10">Other</option>
+
+	</select>
+	<p ng-show ="reportForm.ResultantDamage == '10'">Other: <input type="text" ng-model="reportForm.otherResultantDamage"></p>
+</span>
+
+<h4>Roof inspection:</h4>
+<!--TODO: ID of following block has been copied from claim section. MUST CHANGE IT -->
+<select id="RoofInspection"  ng-model="reportForm.RoofInspection" ng-init="reportForm.RoofInspection = 1" >
+	<option value="1">Inspection of the roof revealed a fractured roof tile directly above the area of water damage</option>
+	<option value="2">Inspection of the roof above revealed a slipped roof tile directly above the area of water damage</option>
+	<option value="3">Inspection of the roof above revealed the gutters/downpipes were full of debris which has resulted in an overflow of the gutters</option>
+	<option value="4">Inspection of the roof above revealed the roofing system to be in poor condition with obvious maintenance issues sighted to the --- which has resulted in water ingress</option>
+	<option value="5">Inspection of the roof above revealed deteriorated and dislodged mortar has blocked the valley iron resulting in an overflow into the roof cavity</option>
+	<option value="6">Inspection of the roof above revealed deteriorated/cracked flashings to the --- directly above the area of water ingress</option>
+	<option value="7">Inspection of the roof revealed --- which has resulted in water ingress</option>
+</select>
+<p ng-show ="reportForm.RoofInspection == '4' || reportForm.RoofInspection == '7' || reportForm.RoofInspection == '6'">Text: <input type="text" ng-model="reportForm.otherRoofInspection"></p>
+<h4>Contents: </h4>
+<select id="WereContentsInvolved" ng-model="reportForm.WereContentsInvolved" ng-init="reportForm.WereContentsInvolved = 1">
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+</select>
+
+<div id="ActionFollowingIncident">
+	<p  ng-show="pageContent.form_riskhazard.IsMakeSafeRequired == 'True'">A makesafe has been carried out by Power Partners to temporarily secure the property.</p>
+</div>
+</br>
+
+<h4>Maintenance</h4>
+<span id="Maintenance">
+	<p ng-show="form_assesment.IsMaintenance=='True'">The insured will be responsible for carrying out necessary repairs to the <input type="text" ng-model="reportForm.maintenance"> prior to the commencement of insurance repairs.</p>
+
+	<p ng-show="form_assesment.IsMaintenance!='True'">
+		No maintenance issues to report relating to this claim. </p>
+</span>
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<select id="ReasonForReferral"  ng-model="reportForm.ReasonForReferral" ng-init="reportForm.ReasonForReferral = 1" >
+	<option value="1">The claim is recommended as Accept and as the claim is within our Authority Limit and the resultant damage is consistent with water ingress due to a defined storm event we will proceed with the repairs.</option>
+	<option value="2">The claim is submitted as “Unsure – Policy Coverage” as the damage sighted appears to be due to --- and as a result we cannot determine policy coverage.</option>
+	<option value="3">The damage sighted did not appear to be consistent with a defined storm event and in our opinion due to --- and as a result the claim is recommended as Do not accept – Not covered.</option>
+	<option value="4">The claim is submitted as “Cancel Claim – Under Excess” as the damage sighted will cost less or is comparable in cost to the excess payable.</option>
+	<option value="5">The claim is submitted as “Cancel Claim – Client wishes to withdraw the claim due to ---.</option>
+	<option value="6">The claim is submitted as “Cancel Claim – No Resultant Damage” as no building damage has been sustained as a result of water ingress.</option>
+	<option value="7">The claim is submitted as “Accept – Review: Component of claim requires cash settlement” as the damage sighted is consistent with water ingress during a defined storm event however some of the damaged items consistent with the claim are recommended for cash settlement. A scope of works with these items along with a cash settlement figure has been provided separately. Costs provided include GST and builders margin.</option>
+	<option value="8">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with water ingress during a defined storm event however the insured is seeking cash settlement for the claimed event.</option>
+</select>
+<p ng-show ="reportForm.ReasonForReferral == '9'">Other: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '2' || reportForm.ReasonForReferral == '3' || reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<!-- <p ng-show ="reportForm.ReasonForReferral == '3'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p> -->
+</br></br>

@@ -1,0 +1,78 @@
+
+<h4>Festooning Garage Ceiling</h4>
+<h4>Claimed Incident:</h4>
+<p id="ClaimedIncident">The garage ceiling has collapsed with the exact cause unknown.</p>
+
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+<div id="BuildersAssessmentCause">Inspection completed by 
+	<input type="text" placeholder="Name" ng-model="reportForm.estimatorName"> on {{pageContent.jobinfo.DateTimeOfVisit}} in the presence of 
+	<input type="text" placeholder="Name" ng-model="reportForm.clientName" >
+	<h4>Relationship:</h4>
+	<select id="" ng-model="reportForm.relation" ng-init="reportForm.relation = 1">
+		<option value="1" >The insured owner</option>
+		<option value="2">The real estate agent</option>
+		<option value="3">The tanent</option>
+		<option value="4">Family friend</option>
+		<option value="5">A relative of the insured</option>
+		<option value="6">Other</option>
+	</select>
+	<p ng-show ="reportForm.relation == '6'">Other: <input type="text" ng-model="reportForm.otherRelation"></p>
+</div>
+<span >
+	<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+	<select id="ResultantDamage" ng-model="reportForm.ResultantDamage" ng-init="reportForm.ResultantDamage = 1" >
+		<option value="1">garage ceiling.</option>
+		<option value="2">roller door.</option>
+		<option value="3">panel lift door.</option>
+		<option value="4">Other</option>
+	</select>
+	<p ng-show ="reportForm.ResultantDamage == '4'">Other: <input type="text" ng-model="reportForm.otherResultantDamage"></p>
+</span>
+
+<h4>Ceiling Condition:</h4>
+<select>
+	<option value="1">Inspection of the sagging garage ceiling revealed no obvious signs of any water ingress or staining.</option>
+	<option value="2">Inspection of the collapsed garage ceiling revealed no obvious signs of any water ingress or staining.</option>
+</select>
+
+</br></br>
+<h4>Roof inspection:</h4>
+<select>
+	<option value="1">Inspection of the roof above revealed it to be in excellent condition with no obvious maintenance or storm related damage sighted.</option>
+	<option value="2">Inspection of the roof above revealed it to be in reasonable condition for its age with general wear and tear visible consistent with the age of the roof.</option>
+	<option value="3">Inspection of the roof above revealed it to be in poor condition with obvious maintenance issues which need to be attended to by the insured consistent with general wear and tear due to the age of the roof.</option>
+</select>
+
+</br></br>
+
+<h4>Contents: </h4>
+<select id="WereContentsInvolved" ng-model="reportForm.WereContentsInvolved" ng-init="reportForm.WereContentsInvolved = 1">
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+</select>
+
+<div id="ActionFollowingIncident">
+	<p  ng-show="pageContent.form_riskhazard.IsMakeSafeRequired == 'True'">A makesafe has been carried out by Power Partners to temporarily secure the property.</p>
+</div>
+</br>
+
+<h4>Maintenance</h4>
+<span id="Maintenance">
+	<p ng-show="form_assesment.IsMaintenance=='True'">The insured will be responsible for carrying out necessary repairs to the <input type="text" ng-model="reportForm.maintenance"> prior to the commencement of insurance repairs.</p>
+
+	<p ng-show="form_assesment.IsMaintenance!='True'">
+		No maintenance issues to report relating to this claim. </p>
+</span>
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<!--Static text here for this template-->
+<p id="ReasonForReferral">
+	The exact cause for the garage ceiling collapse is difficult to determine. It is likely due to a number of contributing factors.
+	</br>The garage ceiling is subject to moisture, wind, vibrations due to the roller/panel door and combined with insufficient fixing of the perimeter of the ceiling these factors together can contribute to the collapse of the garage ceiling.
+	</br>As a result the exact cause of the ceiling collapsed is unable to be established. A copy of the garage ceiling collapse and festooning report has been uploaded as an attachment for the insurer’s reference on the common issues found as a result of these ceiling collapses.
+	</br>The claim is recommended as "Do Not Accept - Not Covered" as no defined claimable event appears to have taken place which has directly resulted in the failure of the garage ceiling.
+</p>
+
+</br></br>

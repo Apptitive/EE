@@ -1,0 +1,142 @@
+ <div class="container-fluid">
+        <div class="row content_box">
+            <div class="col-md-4 four_box_cont_right">
+                <div class="col-md-12 box1">
+                    <div class="four_cont_item four_cont_item_right" id="map-canvas">
+                        <!--  <img src="images/map.jpg">  -->
+                        <div ng-include src="googlemap"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 box4">
+                    <div class="four_cont_item four_cont_item4">
+                        <div class="four_cont_item_header four_cont_item_header4"><p>PROCEDURAL DOCUMENTATION</p></div>
+                        <ul class="box4_ul">
+                            <!-- <li>
+                                <a href="" ng-click="open_remotefile('http://cst-kh.edu.ps/staff/mabujamee/wp-content/uploads/2010/10/Medicinal-Flowers.pdf')">
+                                    <img src="images/list_icon4.png">
+                                    <p>Test Doc</p>
+                                    <span><img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li> -->
+                            <li ng-repeat="doc in pageContent.proceduralDocList">
+                                <a href="" ng-click="open_remotefile(doc.DocumentURL)">
+                                    <img src="images/list_icon4.png">
+                                    <p>{{doc.DocumentName}}</p>
+                                    <span><img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+
+                        <div class="four_cont_item_header four_cont_item_header4"><p>NOTICE BOARD</p></div>
+                        <ul class="box4_ul">
+                            <li ng-repeat="notice in pageContent.noticeList" data-toggle="modal" data-target="#noticeModal" ng-click="showNotice(notice.NoticeDescription)">
+                                <a >
+                                    <img src="images/list_icon4.png">
+                                    <p>{{notice.NoticeName}}</p>
+                                    <span><img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li>
+                            <!-- <li  data-toggle="modal" data-target="#noticeModal" ng-click="showNotice('Test Notice description')">
+                                <a >
+                                    <img src="images/list_icon4.png">
+                                    <p>Notice Name</p>
+                                    <span><img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li> -->
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8 four_box_cont">
+                <div class="col-md-6 box1 datepicker_cont">
+                    <div class="four_cont_item four_cont_item1">
+                    
+                    <div date-picker="dpicker" max-view="date" min-view="date" view="date" class="datepicker"></div>
+
+                    <!-- {{dpicker|date}} -->
+                        
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 box2">
+                    <div class="four_cont_item four_cont_item2">
+                        <div class="four_cont_item_header four_cont_item_header2"><p>JOBS DETAILS</p></div>
+                        <ul>                                    
+                            <li ng-repeat="j in pageContent.dateFilterJob[pageContent.currentDate] track by $index" ng-click="showJobDetail(j.JobId)">
+                                <a href="#jobdetail" >
+                                    <img src="images/list_icon4.png">
+                                    <!-- <div style="background-color:{{colorMap[j.JobSate]}}"></div> -->
+                                    <p>{{j.JobId}}</p>
+                                    <span>{{j.InspectionStatus}}<img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 box3">
+                    <div class="four_cont_item four_cont_item3">
+                        <div class="four_cont_item_header four_cont_item_header3"><p>JOBS</p></div>
+                        <form novalidate name="jobsearchForm" id="searchForm">
+                            <ul class="search_box">                                 
+                                <li>
+                                    <input type="text" name="JobId" placeholder="JobId" class="searchInput" ng-model="searchForm.JobId">
+                                </li>
+                                <li>    
+                                    <input type="text" name="ClaimNumber" placeholder="ClaimNumber" class="searchInput" ng-model="searchForm.ClaimNumber" >
+                                </li>
+                                <li>    
+                                    <input type="text" name="ClientName" placeholder="ClientName" class="searchInput" ng-model="searchForm.ClientName">
+                                </li>
+                                <li>    
+                                    <input type="text" name="Suburb" placeholder="Suburb" class="searchInput" ng-model="searchForm.Suburb">
+
+                                </li>
+                                <li>                                            
+                                    <input type="button" name="submit" value="SEARCH" class="search_btn" ng-click="searchJob(searchForm)">
+                                </li>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 box5">
+                    <div class="four_cont_item four_cont_item3">
+                        <div class="four_cont_item_header four_cont_item_header3"><p>JOBS</p></div>
+                        <ul class="jobs_list">
+                            <li ng-repeat="j in joblist" ng-click="showJobDetail(j.JobID,j)">
+                                <a href="#jobdetail">
+                                    <img src="images/list_icon4.png">
+                                    <p>{{j.JobID}}</p>
+                                    <span>{{j.PercentageCompleted}}<img src="images/small_arrow_right.png"></span>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+
+                    </div>
+                </div>
+                
+            </div>
+            
+
+
+        </div><!--row ends-->
+    </div><!--container ends-->
+
+    <script type="text/javascript">
+        $('.search_btn').on('mousedown touchstart', function(){
+        $(this).addClass('active');
+        })
+        $('.search_btn').on('mouseup touchcancel', function(){
+            $(this).removeClass('active');
+        })
+    </script>

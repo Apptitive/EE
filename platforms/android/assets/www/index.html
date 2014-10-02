@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi" />
+        <!-- <meta name="viewport" content=  "width=device-width, initial-scale=1"> -->
+        
+       <title>Empower Estimator</title>   
+ 
+        <link href="css/bootstrap.min.css" rel="stylesheet"> 
+        <link href="css/style.css" rel="stylesheet"> 
+        <link href="css/main.css" rel="stylesheet">  
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript"  src="js/bootstrap.min.js"></script> 
+
+        <!-- <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="SQLitePlugin.js"></script> -->
+        <!-- angular -->
+       <!--script type="text/javascript" src="js/angular/angular.js"></script-->
+        <script type="text/javascript" src="js/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/angular/angular-resource.js"></script>   
+        <script type="text/javascript" src="js/angular/angular-touch.js"></script>
+        <script type="text/javascript" src="js/angular/angular-sanitize.min.js"></script>
+
+        <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src='js/underscore.min.js'></script>
+        <script src='js/angular/angular-google-maps.min.js'></script>
+
+        <script type="text/javascript" src="js/data.json"></script>
+
+
+        <!--added for calendar-->
+        <link rel="stylesheet" type="text/css" href="css/styles/index.css">
+         <script src="js/scripts/datePicker.js"></script>
+         <script src="js/scripts/datePickerUtils.js"></script>
+         <script src="js/scripts/input.js"></script>
+         <!--added for calendar-->
+         <script type="text/javascript" src="js/other.js"></script>
+         <script type="text/javascript" src="js/sqlite.js"></script>
+         <!--script type="text/javascript" src="js/database.js"></script-->
+         <script type="text/javascript" src="js/controller.js"></script>
+        <!--script type="text/javascript" src="js/service.js"></script-->
+        
+    </head>
+    <body ng-app="app" ng-controller = "mainCtrl">
+        <!-- <div class="app"> -->
+           <div id="loadingDiv">
+                <div id="circularG">
+            <div id="circularG_1" class="circularG">
+            </div>
+            <div id="circularG_2" class="circularG">
+            </div>
+            <div id="circularG_3" class="circularG">
+            </div>
+            <div id="circularG_4" class="circularG">
+            </div>
+            <div id="circularG_5" class="circularG">
+            </div>
+            <div id="circularG_6" class="circularG">
+            </div>
+            <div id="circularG_7" class="circularG">
+            </div>
+            <div id="circularG_8" class="circularG">
+            </div>
+            </div>
+            </div>
+<div ng-include  src = "modal_tempalte"></div>
+
+<div class="container-fluid" style="height: 100%;">
+        <div class="row">
+            <div class="container-fluid header">
+                <div class="row" ng-show="pageContent.page == 'login'">
+                    
+                </div>
+                <div ng-show="pageContent.page != 'login'">
+                    <div ng-include  src="header"></div>
+                </div>
+            </div>
+        </div><!--row ends-->
+
+        <div class="row" ng-show="pageContent.page == 'login'" style="height: 74%;">
+            <div class="container-fluid" ng-controller="loginCtrl" style="height: 100%;">
+                <div class="row" style="height: 100%;">
+
+                    <div class="col-md-7 baneer_left_cont">
+                        <div class="row">
+                            <div class="banner">
+                                <div class="main_logo"><a href="#"><img src="images/main_logo.png"></a></div>
+                                <img src="images/banner.png" class="banner_img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 pull-right baneer_right_cont" style="height: 100%; ">
+                        <div class="row" style="height: 100%; ">
+                            <div class="banner_right">
+                                <div class="banner_top">
+                                <ul class="nav nav-tabs" role="tablist">
+                                  <li class="active"><a href="#signin" class="signin" role="tab" data-toggle="tab">sign in</a></li>
+                                  <li ><a href="#signup" class="signin" role="tab" data-toggle="tab">sign up</a></li>
+                                 </ul>
+                                    
+                                </div>
+                                <div class="form_holder signupFormHolder">
+                                    <div class="form_group signupFormHolder"  style="margin-bottom: 50px;">
+                                    <div class="tab-content">
+                                      <div class="tab-pane active" id="signin">
+                                        <label>Username:</label>
+                                        <input type="text" name="username" ng-model="m_username" placeholder="Username">
+                                        <label>Password:</label>
+                                        <input type="password" name="password" ng-model="m_password" placeholder="Password">
+                                        <input type="button" name="signin"  value="LOG IN" class="signin_btn" ng-click="login()">
+                                        <p class="forgot_pass"  ng-click="forgotPass()">Forgot password?</p>
+                                      </div>
+                                      <div class="tab-pane" id="signup">
+                                      <form novalidate name="signupForm" id="signupForm">
+                                            <label>User Name:</label>
+                                            <input type="text" name="username" ng-model="user.Username" placeholder="User Name">
+                                            <label>Email:</label>
+                                            <input type="text" name="username" ng-model="user.Email" placeholder="User Name">
+                                            <label>Password:</label>
+                                            <input type="password" name="password" ng-model = "user.Password" placeholder="Password">
+                                            <label>Password Confirmation:</label>
+                                            <span class="error" ng-show="signupForm.password.$dirty && signupForm.conPassword.$dirty">
+                                                <div class="matched"  ng-show="user.Password == user.ConPassword">Password matched</div>
+                                                <div ng-show="user.Password != user.ConPassword">Password doesn't matched!</div>
+                                            </span>
+                                            <input type="password" name="conPassword" ng-model = "user.ConPassword"  placeholder="password">
+                                            <div class="backbtn"><a href="#signin"  class="signin_btn" role="tab" data-toggle="tab" ><p>BACK</p></a></div>
+                                            <input type="button" name="signin" ng-click="createNewUser()" value="SUBMIT" class="signin_btn">
+                                      </form>
+                                      </div>
+                                      
+                                    </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div><!--row ends-->
+            </div><!--container ends-->
+        </div><!--row login ends-->
+
+        <div class="row" ng-show="pageContent.page == 'home'">
+           <div ng-include src = "home"></div>
+        </div>
+        <!-- home end -->
+        <div class="row" ng-show="pageContent.page == 'jobdetail'">
+            <div ng-include src = "jobdetail"></div>
+        </div>
+        <!-- end jobdetail -->
+        <div class="row" ng-show="pageContent.page == 'insurer'">
+            <div ng-include src = "insurer"></div>
+        </div><!--row ends-->
+        <!-- end insurer -->
+        <div class="row" ng-show="pageContent.page == 'riskhazard'">
+            <div ng-include  src="riskhazard"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'photo_capture'">
+            <div ng-include  src="photo_capture"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'client_discuss'">
+            <div ng-include  src="client_discuss"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'maintenance'">
+            <div ng-include  src="maintenance"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'line_items'">
+            <div ng-include  src="line_items"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'po'">
+            <div ng-include  src="po"></div>
+        </div>
+        <div class="row" ng-show="pageContent.page == 'report_template'">
+            <div ng-include  src="report_template"></div>
+        </div>
+        <div class="row bottom_bar_position">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="bottom_bar" ng-show="pageContent.page == 'login'">
+                        
+                    </div>
+                    <div class="bottom_bar" ng-show="pageContent.page != 'login'">
+                        <div ng-include  src="footer"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div><!--row ends-->           
+
+    </div>
+
+
+        <!-- </div> -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/service.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            $('#myTab a').click(function (e) {
+              e.preventDefault()
+              $(this).tab('show')
+            })
+            $('.backbtn a').click(function (e) {
+              e.preventDefault()
+              $(this).tab('show');
+              $('.nav-tabs li').removeClass('active');
+              $('.nav-tabs li:first-child').addClass('active');
+            })
+            $('.signin_btn').on('mousedown touchstart', function(){
+                $(this).addClass('active');
+            })
+            $('.signin_btn').on('mouseup touchcancel', function(){
+                $(this).removeClass('active');
+            })
+            $('.search_btn').on('mousedown touchstart', function(){
+                $(this).addClass('active');
+            })
+            $('.search_btn').on('mouseup touchcancel', function(){
+                $(this).removeClass('active');
+            })
+            $('.bottom_panel .signin').on('mousedown touchstart', function(){
+            $(this).addClass('activeNext');
+            })
+            $('.bottom_panel .signin').on('mouseup touchcancel', function(){
+                $(this).removeClass('activeNext');
+            })
+            $(window).load(function(){
+                eeDb.open();
+                eeDb.createJobTbl();
+            })
+           
+        </script>
+    </body>
+</html>

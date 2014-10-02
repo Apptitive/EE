@@ -1,0 +1,107 @@
+<!-- Modal -->
+<div class="modal fade" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <span class="closebtn" data-dismiss="modal" ng-click="clearModalMessage()"></span>
+        <span class="modal-title" id="forgotModalLabel">Forgot password</span>
+      </div>
+      <div class="modal-body">
+	      <div ng-show="!recoverymailsent">
+	      	<span class="text_desc">Forgotten your account's password? Enter your email address and we'll send you a recovery link.</span>
+	        <span class="email_label">User Name:</span><span class="email_input"> <input type="name" ng-model="username"></span>
+	      </div>
+          <div ng-show="recoverymailsent"><span>{{modal.message}}</span></div>
+		
+      </div>
+      <div class="modal-footer">       
+        <input ng-hide="recoverymailsent" type="submit" name="signin" class="signin_btn" ng-click="recoverymail(username)"  style="float:right">       
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <span class="closebtn" data-dismiss="modal"></span>
+        <span class="modal-title" id="myModalLabel">Change password</span>
+      </div>
+      <form novalidate name="changepassForm" id="changepassForm">
+        <div class="modal-body">
+        <div class="changePassModal">
+          <div ng-show="!showError">
+            <ul>
+              <li> <span>Old password</span><span>  :&nbsp;&nbsp;<input type="password" ng-model="passwordInput.oldPassword"></span></li>
+              <li> <span>New password</span><span> :&nbsp;&nbsp;<input type="password" name="newPassword" ng-model="passwordInput.newPassword" ></span></li>
+
+              <li><span>Confirm new password</span><span> :&nbsp;&nbsp;<input type="password" name="conPassword" ng-model="passwordInput.conPassword" ></span></li>
+              <li> <span></span><span class="error" ng-show="changepassForm.newPassword.$dirty && changepassForm.conPassword.$dirty">
+                <div class="matched"  ng-show="passwordInput.newPassword == passwordInput.conPassword">Password matched</div>
+                <div ng-show="passwordInput.newPassword != passwordInput.conPassword">Password doesn't matched!</div>
+                  </span>
+              </li>
+            </ul>
+          </div>
+           <div ng-show="showError"></div>
+        </div>
+        </div>
+        <div class="modal-footer">
+          
+          <input type="submit" ng-disabled="passwordInput.newPassword != passwordInput.conPassword" name="signin" class="signin_btn" ng-click="changePassword(passwordInput)"  style="float:right">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade notemodal" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <span class="closebtn" data-dismiss="modal"></span>
+        <span class="modal-title" id="notesModalLabel">Notes</span>
+      </div>
+      <div class="modal-body">
+        <div class="text_desc">
+            <textarea placeholder="write your note..." ng-model="pageContent.jobinfo.notes"></textarea>
+        
+        </div>
+         
+    
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <input type="submit" name="signin" value="SAVE" class="signin_btn" ng-click="saveNote()"  style="float:right" >
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade notemodal" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <span class="closebtn" data-dismiss="modal"></span>
+        <span class="modal-title" id="noticeModalLabel">Notice</span>
+      </div>
+      <div class="modal-body">
+        <div class="text_desc">
+          {{modal.text}}
+        
+        </div>
+         
+    
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <input type="button" name="signin" value="CLOSE" class="signin_btn" data-dismiss="modal"  style="float:right" >
+       
+      </div>
+    </div>
+  </div>
+</div>

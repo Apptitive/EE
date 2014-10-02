@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	$('#forgotModal').on('hide',function(e){
+		e.preventDefault();
+		   $( " #forgotModal .closebtn" ).trigger( "touchstart" );
+		});
+	$('.closebtn').on('mousedown touchstart',function(){
+		$('#myModal').modal('hide');
+		$('#notesModal').modal('hide');
+		$('#forgotModal').modal('hide');
+	})
+</script>
+
+
+<div class="row">
+<div class="breadcrump_top" ng-show="pageContent.page == 'home'">
+	<p>POWER PARTNERS</p>	
+</div>
+<div ng-show="pageContent.page != 'home'">
+	
+		<div class="logo" ng-click="showHome()">
+			<img src="images/homeback.png">
+		</div>
+	
+	
+	<div class="breadcrump_top">	
+		<img src="images/right_arrow.png">
+		<p>JOBS</p>	
+		<!-- <img src="images/right_arrow.png"> -->
+		<p class="jobid">JOB ID:{{pageContent.jobid}}</p>	
+	</div>
+</div>
+
+	<div class="logo_right">
+		<div class="logo_right_settings" ng-click="showSettings=!showSettings">
+			<img src="images/settings.png">
+		</div>
+		<div id="setting_popup" ng-show="showSettings">
+			<ul>
+				<li data-toggle="modal" data-target="#myModal" ng-click="showSettings=!showSettings">Change password</li>
+				<li ng-click="showSettings=!showSettings;logout()"><a  class="logout">Log out</a></li>
+			</ul>
+		</div>
+		<div class="logo_right_cont">
+			<p>{{loggedUser.username}}</p>
+		</div>
+	</div>
+</div>

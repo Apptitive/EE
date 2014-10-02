@@ -1,0 +1,98 @@
+
+<h4>Water Escape – Burst Pipe/Overflow</h4>
+<h4>Claimed Incident:</h4>
+<p id="ClaimedIncident">Water damage has been sustained to the insured’s property as a result of a burst pipe/overflow.</p>
+
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+<div id="BuildersAssessmentCause">Inspection completed by 
+	<input type="text" placeholder="Name" ng-model="reportForm.estimatorName"> on {{pageContent.jobinfo.DateTimeOfVisit}}  in the presence of 
+	<input type="text" placeholder="Name" ng-model="reportForm.clientName" >
+	<h4>Relationship:</h4>
+	<select id="" ng-model="reportForm.relation" ng-init="reportForm.relation = 1">
+		<option value="1" >The insured owner</option>
+		<option value="2">The real estate agent</option>
+		<option value="3">The tanent</option>
+		<option value="4">Family friend</option>
+		<option value="5">A relative of the insured</option>
+		<option value="6">Other</option>
+	</select>
+	<p ng-show ="reportForm.relation == '6'">Other: <input type="text" ng-model="reportForm.otherRelation"></p>
+</div>
+<span >
+	<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+	<select id="ResultantDamage" ng-model="reportForm.ResultantDamage" ng-init="reportForm.ResultantDamage = 1" >
+		<option value="1">solid timber flooring.</option>
+		<option value="2">floating flooring.</option>
+		<option value="3">timber flooring.</option>
+		<option value="4">tiled flooring.</option>
+		<option value="5">kitchen cabinetry.</option>
+		<option value="6">door jambs.</option>
+		<option value="7">vanity unit.</option>
+		<option value="8">Other</option>
+	</select>
+	<p ng-show ="reportForm.ResultantDamage == '8'">Other: <input type="text" ng-model="reportForm.otherResultantDamage"></p>
+	<p> as a result of impact from a motor vehicle.</p>
+</span>
+
+<h4>Causation:</h4>
+<select id="Causation" ng-model="reportForm.Causation" ng-init="reportForm.Causation = 1"> 
+	<option value="1">A pipe within the vanity unit has burst resulting in water flooding the immediate area.</option>
+	<option value="2">A pipe within the kitchen cabinetry has burst resulting in water flooding the immediate area.</option>
+	<option value="3">The dishwasher has leaked resulting in water damage to the immediate area.</option>
+	<option value="4">The washing machine has leaked resulting in water damage to the immediate area.</option>
+	<option value="5">The --- has overflowed which has resulted in water damage to the property.</option>
+	<option value="6">Water damage has been sustained due to ---.</option>
+</select>
+<p ng-show ="reportForm.Causation == '6' || reportForm.Causation == '5'">Damage item: <input type="text" ng-model="reportForm.otherCausation"></p>
+
+</br></br>
+<h4>Repaired Leak:</h4>
+<select id="Causation" ng-model="reportForm.RepairedLeak" ng-init="reportForm.RepairedLeak = 1">
+	<option value="1">The insured will be responsible for repairing the leaking pipe prior to the commencement of repairs.</option>
+	<option value="2">The insured has already engaged the services of a plumber to repair the leak.</option>
+	<option value="3">The leak has already been repaired by the insured’s plumber. A photo of the invoice has been uploaded for your reference.</option>
+	<option value="4">The leak has already been repaired by the insured’s plumber. The insured was unable to present a copy of the invoice during the inspection.</option>
+	<option value="5">Insured will be required to carry out necessary repairs to the ---</option>
+</select>
+<p ng-show ="reportForm.RepairedLeak == '5' ">Damage item: <input type="text" ng-model="reportForm.otherRepairedLeak"></p>
+
+</br></br>
+
+<h4>Contents: </h4>
+<select id="WereContentsInvolved" ng-model="reportForm.WereContentsInvolved" ng-init="reportForm.WereContentsInvolved = 1">
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+</select>
+
+<div id="ActionFollowingIncident">
+	<p  ng-show="pageContent.form_riskhazard.IsMakeSafeRequired == 'True'">A makesafe has been carried out by Power Partners to temporarily secure the property. (Related to checklist – was a makesafe completed Y/N).</p>
+</div>
+</br>
+
+<h4>Maintenance</h4>
+<span id="Maintenance">
+	<p ng-show="form_assesment.IsMaintenance=='True'">The insured will be responsible for carrying out necessary repairs to the <input type="text" ng-model="reportForm.maintenance"> prior to the commencement of insurance repairs.</p>
+
+	<p ng-show="form_assesment.IsMaintenance!='True'">
+		No maintenance issues to report relating to this claim. </p>
+</span>
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<select id="ReasonForReferral"  ng-model="reportForm.ReasonForReferral" ng-init="reportForm.ReasonForReferral = 1" >
+	<option value="1">The claim is recommended as Accept and as the claim is within our Authority Limit and the resultant damage is consistent with water damage due to a leaking pipe we will proceed with the repairs.</option>
+	<option value="2">The claim is recommended as Accept and as the claim is within our Authority Limit and the resultant damage is consistent with water damage due to an overflow we will proceed with the repairs.</option>
+	<option value="3">The claim is submitted as “Unsure – Policy Coverage” as the damage sighted appears to be due to --- and as a result we cannot determine policy coverage.</option>
+	<option value="4">The damage sighted did not appear to be consistent with a leaking pipe and is due to --- and as a result the claim is recommended as Do not accept – Not covered.</option>
+	<option value="5">The claim is submitted as “Cancel Claim – Under Excess” as the damage sighted will cost less or is comparable in cost to the excess payable.</option>
+	<option value="6">The claim is submitted as “Cancel Claim – Client wishes to withdraw the claim due to ---.</option>
+	<option value="7">The claim is submitted as “Cancel Claim – No Resultant Damage” as no building damage has been sustained as a result of water ingress.</option>
+	<option value="8">The claim is submitted as “Accept – Review: Component of claim requires cash settlement” as the damage sighted is consistent with a leaking pipe however some of the damaged items consistent with the claim are recommended for cash settlement. A scope of works with these items along with a cash settlement figure has been provided separately. Costs provided include GST and builders margin.</option>
+	<option value="9">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with a leaking pipe however the insured is seeking cash settlement for the claimed event.</option>
+</select>
+<p ng-show ="reportForm.ReasonForReferral == '9'">Other: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '2' || reportForm.ReasonForReferral == '3' || reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<!-- <p ng-show ="reportForm.ReasonForReferral == '3'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p> -->
+</br></br>

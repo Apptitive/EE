@@ -1,0 +1,87 @@
+
+<h4>IMPACT: VEHICLE</h4>
+<h4>Claimed Incident:</h4>
+Vehicle has impacted the insured’s property.
+</br>
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+Inspection completed by Mr. Mukla.C in the presence of 
+<input type="text">
+<h4>Relationship:</h4>
+<select>
+	<option value="1">The insured owner</option>
+	<option value="2">The real estate agent</option>
+	<option value="3">The tanent</option>
+	<option value="4">Family friend</option>
+	<option value="5">A relative of the insured</option>
+</select>
+other: <input type="text">
+
+<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+<select>
+	<option value="1">Front gate</option>
+	<option value="2">Front fence</option>
+	<option value="3">Boundary fence</option>
+	<option value="4">Main dwelling</option>
+</select>
+other: <input type="text">
+
+<p>as a result of impact from a motor vehicle.</p>
+Vehicle Details: 
+<select>
+	<option value="1">The insure was not aware of the offending vehicle as they had left he scene by the time the insured was made aware of the impact</option>
+	<option value="2">The insure was aware of the offending vehicle and was able to collect the details of the driver</option>
+	<option value="3">The insured has accidently lost controll of the vehicle resulting in the impact damage sighted.</option>
+</select>
+
+</br></br>
+
+Police Report: 
+<select>
+	<option value="1">A Police Report was not sighted but the ubsyred dud oridyce tge Police Reference Number</option>
+	<option value="2">A copy of the Police Report was sighted on site Reference Number</option>
+	<option value="3">Victoria Police were not contacted regarding the incident</option>
+	<option value="4">A copy of the Police Report was not sighted during the inspection</option>
+</select>
+
+</br></br>
+
+Contents: 
+<select>
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+	<option value="3">Victoria Police were not contacted regarding the incident</option>
+	<option value="4">A copy of the Police Report was not sighted during the inspection</option>
+</select>
+</br></br>
+A makesafe has been carried out by Power Partners to temporarily secure the property. (Related to checklist – was a makesafe completed Y/N).
+
+</br></br>
+The insured’s boundary fence was damaged during the claimed event. A cost has been provided to repair the boundary fence. Costs provided are 50% half share of the boundary fence and this component of the claim is recommended for cash settlement. (Related to neighbouring fence damaged in checklist) 
+
+</br>
+<h4>Maintanance</h4>
+The insured will be responsible for carrying out necessary repairs to the [maintenance item issue – TextBox] prior to the commencement of insurance repairs. (Related to checklist – any maintenance issues Y/N)
+
+</br></br>
+No maintenance issues to report relating to this claim. (Related to checklist – any maintenance issues Y/N)
+
+</br>
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<select>
+	<option value="1">The sighted damage is consistent with impact by a motor vehicle and within our Authority Limit and as such we are submitting the claim as Accept and will proceed with repairs.</option>
+	<option value="2">The damage sighted does not appear to be consistent with impact by a motor vehicle and appears to be due to ---. and as a result the claim is recommended as Do not accept – Not covered.</option>
+	<option value="3">The claim is submitted as “Accept – Review: Cannot warrant the work” as there is pre-existing damage to the ---. which is unrelated to the impact claim.</option>
+	<option value="4">The claim is submitted as “Cancel Claim – Client wishes to withdraw the claim due to ---. </option>
+	<option value="5"> The claim is submitted as “Cancel Claim – Under Excess” as the damage sighted will cost less/and or comparable in cost to the excess payable. </option>
+	<option value="6"> The claim is submitted as “Accept – Review: Component of claim requires cash settlement” as the damage sighted is consistent with vehicle impact however some of the damaged items consistent with the claim are recommended for cash settlement. A scope of works with these items along with a cash settlement figure has been provided separately. Costs provided include GST and builders margin.</option>
+	<option value="7">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with vehicle impact however the insured is seeking cash settlement for the claimed event.
+	</option>
+</select>
+<p ng-show ="reportForm.ReasonForReferral == '9'">Other: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '2' || reportForm.ReasonForReferral == '3' || reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<!-- <p ng-show ="reportForm.ReasonForReferral == '3'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p> -->
+</br></br>

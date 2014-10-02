@@ -1,0 +1,17 @@
+<div>
+	<select ng-model="storm_report"  ng-init="storm_report = 1">
+		<option value="1" selected="true">Select a type</option>
+		<option value="Storm_Hail">Storm Hail</option>
+		<option value="Water_Ingress">Storm - Water Ingress</option>
+		<option value="Wind_Damage">Storm - Wind Damage</option>
+	</select>
+</div>
+<div ng-show="storm_report == 'Storm_Hail'">
+	<div ng-include src="'views/report_template/storm_hail.html'" ></div>
+</div>
+<div ng-show="storm_report == 'Water_Ingress'">
+	<div ng-include="'views/report_template/storm_water_ingress.html'"></div>
+</div>
+<div ng-show="storm_report == 'Wind_Damage'">
+	<div ng-include src="'views/report_template/storm_wind_damage.html'"></div>
+</div>

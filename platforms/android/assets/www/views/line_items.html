@@ -1,0 +1,180 @@
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+			<div ng-include src="mainmenu"></div>
+		</div>
+
+		<div class="checklist_cont_feedback_wrap" >
+			<div class="col-md-12 checklist_cont3 checklist_cont4">
+				<div class="checklist_cont4_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right2">
+					<ul>
+						<li>
+							<p>Estimation Line Items</p>
+						</li>
+					</ul>
+				</div>
+				<div class="details_holder">
+					<div class="details_holder_heading">
+						<!-- <div><p>LINE ID</p></div> -->
+						<div><p>LOCATION</p></div>
+						<div><p>LOC DESC</p></div>
+						<div><p>LOC DIM</p></div>
+						<div><p>TRADE</p></div>
+						<div><p>SCOPE OF WORK</p></div>
+						<div><p>CHARGE UNIT</p></div>
+						<div><p>CHARGE PER UNIT</p></div>
+						<div><p>UNIT CHANRGED</p></div>
+						<div><p>UNIT COST</p></div>
+						<div><p>MATERIALS COST</p></div>
+						<div><p>TOTAL COST</p></div>
+						<div><p>Ordered</p></div>
+						<div><p>ACTIVE</p></div>
+						<div><p>Contract</p></div>
+						<div><p>ADD Line item</p></div>
+					</div>
+
+					<div class="details_holder_item_cont">
+
+						<div class="details_holder_item" ng-repeat="item in pageContent.jobinfo['lineitem'].arr track by $index">
+							<!-- <div><p>{{item.line_id}}</p></div> -->
+							<div><p>{{item.Location}}</p></div>
+							<div><p>{{item.LocationDesc}}</p></div>
+							<div><p>{{item.LocationDimension}}</p></div>
+							<div><p>{{item.Trade.TradeType1}}</p></div>
+							<div><p>{{item.ScopeOfWorks}}</p></div>
+							<div><p>{{item.ChargeUnit.ChargeUnit1}}</p></div>
+							<div><p>{{item.ChargePerUnit}}</p></div>
+							<div><p>{{item.UnitsCharged}}</p></div>
+							<div><p>{{item.UnitsCost}}</p></div>
+							<div><p>{{item.Materials}}</p></div>
+							<div><p>{{item.TotalCost}}</p></div>
+							<div><p><input type="checkbox" onclick="return false" ng-checked="item.Ordered"></p></div>
+							<div><p><input type="checkbox" onclick="return false" ng-checked="item.Active"></p></div>
+							<div><p><input type="checkbox" onclick="return false" ng-checked="item.Contract"></p></div>
+							<div><p><input type="checkbox" onclick="return false" ng-checked="item.AdditionalLine"></p></div>
+							<div ng-click="remove(pageContent.jobinfo['lineitem'].arr, $index)"><p>REMOVE</p></div>
+						</div>
+					</div>
+
+					<div class="form_holder line_item" >
+						<div class="add_item">
+							<p ng-click="show_form=!show_form" >ADD</p> 
+							<p ng-show="show_form == false" ng-click="show_form=true"><img src="images/addnew.png"></p>
+							<p ng-show="show_form == true" ng-click="show_form=false"><img src="images/minus.png"></p>
+						</div>
+						<form>
+							<div ng-show="show_form == true">
+							<div class="col-md-3 form_col">
+								<div>
+									<span><label>Location</label></span>
+									<span><select ng-model="line_item_to_add.Location" ng-options="o for o in line_item_locations" > <option value="">Select Option</option></select></span>
+								</div>
+								<div>
+									<span><label>Loc. Desc</label></span>
+									<span><textarea ng-model="line_item_to_add.LocationDesc"></textarea></span>
+								</div>	
+								<div>
+									<span><label>Loc. Dim</label></span>
+									<span><textarea ng-model="line_item_to_add.LocationDimension"></textarea></span>
+								</div>
+								<div>
+									<span><label>Ordered</label></span>
+									<span><input name="active" type="checkbox" ng-model="line_item_to_add.Ordered"></span>
+								</div>
+							</div>
+							<div class="col-md-3 form_col">
+
+								<div>
+									<span><label>Trade</label></span>
+									<span><select ng-model="line_item_to_add.Trade" ng-options="item.TradeType1 for item in line_item_trade_types" ><option value="">Select Option</option></select></span>
+								</div>
+								<div class="sow_label">
+									<span><label>SOW</label></span>										
+								</div>	
+								<div class="sow_textarea">										
+									<span><textarea ng-model="line_item_to_add.ScopeOfWorks"></textarea></span>
+								</div>										
+
+							</div>
+							<div class="col-md-2 form_col">										
+								<div>
+									<span><label>Charge Unit</label></span>
+									<span><select  ng-model="line_item_to_add.ChargeUnit" ng-options="item.ChargeUnit1 for item in LineItemChargeUnit"><option value="">Select Option</option></select></span>
+								</div>
+								<div>
+									<span><label>Charge Per Unit</label></span>
+									<span><input type="text" name="per_unit" ng-model="line_item_to_add.ChargePerUnit"></span>
+								</div>
+								<div>
+									<span><label>Unit</label></span>
+									<span><input type="text" name="unit" ng-model="line_item_to_add.UnitsCharged"></span>
+								</div>
+								<div>
+									<span><label>Unit Costs</label></span>
+								    <span><input type="text" name="unit_costs" ng-model="line_item_to_add.UnitsCost"></span>
+								</div>
+								<div>
+									<span><label>Material Costs</label></span>
+									<span><input type="text" name="material_costs" ng-model="line_item_to_add.Materials"></span>
+								</div>
+
+							</div>
+							<div class="col-md-2 form_col">
+
+								<div>
+									<span><label>Total Cost</label></span>
+									<span><input type="text" name="total_cost" ng-model="line_item_to_add.TotalCost"></span>
+								</div>
+								<div>
+									<span><label>Active</label></span>
+									<span><input name="active" type="checkbox" ng-model="line_item_to_add.Active"></span>
+								</div>
+								<div>
+									<span><label>Contract</label></span>
+									<span><input name="active" type="checkbox" ng-model="line_item_to_add.Contract"></span>
+								</div>
+								<div>
+									<span><label>Aditional Line Item</label></span>
+									<span><input name="active" type="checkbox" ng-model="line_item_to_add.AdditionalLine"></span>
+								</div>	
+
+							</div>
+							<div class="col-md-2 form_col">
+								<!-- <input type="button" name="show" value="SHOW"> -->
+								<input type="button" name="insert" class="inputBtn" value="INSERT" ng-click="add_line_item(line_item_to_add)">
+								<input type="button" name="cancel" class="inputBtn" value="CANCEL" ng-click="clear_line_item()">
+							</div>
+						</div>
+						</form>
+					</div>
+
+				</div><!--details_holder ends-->
+				<div class=" col-md-12 bottom_panel">
+
+					<div class="signin"  ng-show="formdata[pageContent.jobid]['riskhazard'].IsSpecialistTradeRequired=='True'" ng-click="showEstimation('po');saveLineItem()" >Next</div>
+					<div class="signin" ng-show="formdata[pageContent.jobid]['riskhazard'].IsSpecialistTradeRequired!='True'" ng-click="showEstimation('report_template');saveLineItem()" >Next</div>
+				</div>
+			</div><!--checklist_cont3 ends-->
+
+		</div><!--checklist_cont_feedback_wrap ends-->
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->
+<script type="text/javascript">
+	$('.form_col .inputBtn').on('mousedown touchstart',function(){
+		$(this).addClass('active');
+	})
+	$('.form_col .inputBtn').on('mouseup touchcancel',function(){
+		$(this).removeClass('active');
+	})
+	$('.bottom_panel .signin').on('mousedown touchstart', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.bottom_panel .signin').on('mouseup touchcancel', function(){
+		$(this).removeClass('activeNext');
+	})
+</script>

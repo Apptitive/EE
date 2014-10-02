@@ -1,0 +1,311 @@
+<div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+			<div ng-include src="mainmenu"></div>
+		</div>
+
+		<div class="checklist_cont_feedback_wrap" >
+			<div class="col-md-12 checklist_cont3 checklist_cont4">
+				<div class="checklist_cont4_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right2">
+					<ul>
+						<li>
+							<p>PO Generation</p>
+						</li>
+					</ul>
+				</div>
+				<div class="details_holder">
+					<div class="details_holder_heading2">
+						<div><p>trade</p></div>
+						<div><p>po type</p></div>
+						<div><p>notes</p></div>
+						<!-- <div><p>start date</p></div>
+						<div><p>finish date</p></div> -->
+						
+					</div>
+
+					<div class="details_holder_item_cont">
+
+						<div class="details_holder_item2" ng-repeat="item in pageContent.jobinfo['polineitem'].arr track by $index">
+							<div><p>{{item.trade.TraderName}}</p></div>
+							<div><p>{{item.POType}}</p></div>
+							<div><p>{{item.Note}}</p></div>
+							<!-- <div><p>{{item.start_date}}</p></div>
+							<div><p>{{item.last_date}}</p></div> -->
+							
+							<!-- <div><p><input type="checkbox" onclick="return false"  ng-checked="item.active"></p></div>
+							<div><p><input type="checkbox" onclick="return false"  ng-checked="item.add_line"></p></div> -->
+						</div>
+					</div>
+
+					<div class=" line_item" >
+						<div class="add_item">
+							<p ng-click="show_form=!show_form" >ADD</p> 
+							<p ng-show="show_form == false" ng-click="show_form=true"><img src="images/addnew.png"></p>
+							<p ng-show="show_form == true" ng-click="show_form=false"><img src="images/minus.png"></p>
+						</div>
+						<form>
+							<div class="po_tab" ng-show="show_form == true">
+
+									<div class="col-md-4">
+										<div style="float:left;margin-right:30px">Trade: </div>
+										<select  class="poSelectTop" ng-model="po_form.trade" ng-options="item.TraderName for item in po_trade_details">
+										  <option value="" ng-if="false"></option>						  
+										</select>
+									</div>
+
+
+									<div class="col-md-4">
+										<div style="float:left;margin-right:10px">PO Type: </div>
+										<select class="poSelectTop"  ng-model="po_form.POType" ng-options="item.POTypeText for item in po_types">
+										  <option value="" ng-if="false"></option>	
+										</select>
+									</div>
+
+									<div class="col-md-12">
+										<div style="float:left;margin-right:10px">Note/Instruction: </div>
+										  <textarea ng-model="po_form.Note" class="po_note"></textarea>
+									</div>
+
+								<div class="po_details_holder col-md-12" style="margin-top:10px;border:1px solid #ccc">
+									<div class="details_holder_heading">
+										<!-- <div class="col-md-1"><p>LINE ID</p></div> -->
+										<div class="col-md-1"><p>LOCATION</p></div>
+										<div class="col-md-1"><p>LOC DESC</p></div>
+										<div class="col-md-1"><p>LOC DIM</p></div>
+										<div class="col-md-1"><p>TRADE</p></div>
+										<div class="col-md-1"><p>SCOPE OF WORK</p></div>
+										<div class="col-md-1"><p>CHARGE UNIT</p></div>
+										<div class="col-md-1"><p>CHARGE PER UNIT</p></div>
+										<div class="col-md-1"><p>UNIT CHANRGED</p></div>
+										<div class="col-md-1"><p>UNIT COST</p></div>
+										<div class="col-md-1"><p>MATERIALS COST</p></div>
+										<div class="col-md-1"><p>TOTAL COST</p></div>
+									</div>
+
+									<div class="po_detail col-md-12" ng-repeat="item in po_line_item_array track by $index">
+										
+										<!-- <div class="col-md-1"><p>{{item.line_id}}</p></div> -->
+										<div class="col-md-1"><p>{{item.location}}</p></div>
+										<div class="col-md-1"><p>{{item.location_desc}}</p></div>
+										<div class="col-md-1"><p>{{item.location_dim}}</p></div>
+										<div class="col-md-1"><p>{{item.trade}}</p></div>
+										<div class="col-md-1"><p>{{item.sow}}</p></div>
+										<div class="col-md-1"><p>{{item.charge_unit}}</p></div>
+										<div class="col-md-1"><p>{{item.charge_per_unit}}</p></div>
+										<div class="col-md-1"><p>{{item.units_charged}}</p></div>
+										<div class="col-md-1"><p>{{item.units_cost}}</p></div>
+										<div class="col-md-1"><p>{{item.materials}}</p></div>
+										<div class="col-md-1"><p>{{item.total_cost}}</p></div>
+									
+									</div>
+									<div class="po_detail col-md-12">
+										<!-- <div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.line_id"></p></div> -->
+										<div class="col-md-1"><p><input type="text" name="locationlocation" class="po_form" ng-model="po_line_item_to_add.location"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.location_desc"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.location_dim"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.trade"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.sow"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.charge_unit"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.charge_per_unit"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.units_charged"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.units_cost"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.materials"></p></div>
+										<div class="col-md-1"><p><input type="text" name="location" class="po_form" ng-model="po_line_item_to_add.total_cost"></p></div>
+										<div class="col-md-12 po_form_btn">
+											<div class="col-md-3">
+												<div style="float:left;margin-right:5px">Start Date: </div>
+												<input type="text" name="location" ng-model="po_line_item_to_add.StartDate">
+											</div>
+
+											<div class="col-md-3">
+												<div style="float:left;margin-right:5px">Finish Date: </div>
+												<input type="text" name="location" ng-model="po_line_item_to_add.FinishDate">
+											</div>
+											<div class="col-md-6 po_form_btn">	
+												<input type="button" name="insert" class="inputBtn" value="INSERT" ng-click="add_po_line_item(po_line_item_to_add)">
+												<input type="button" name="cancel"  class="inputBtn" value="CANCEL" ng-click="clear_po_line_item()">
+											</div>
+										</div>	
+										
+									</div>										
+								</div>
+								<div class="col-md-12 po_form_btn">
+									<!-- <div class="col-md-3">
+										<div style="float:left;margin-right:5px">Start Date: </div>
+										<input type="text" name="">
+									</div>
+
+									<div class="col-md-3">
+										<div style="float:left;margin-right:5px">Finish Date: </div>
+										<input type="text" name="">
+									</div>
+									<div class="col-md-6 po_form_btn"> -->
+										
+										<input type="button" name="insert" class="inputBtn" value="INSERT" ng-click="add_po_obj()">
+										<input type="button" name="cancel"  class="inputBtn" value="CANCEL" ng-click="clear_po_obj()">
+									<!-- </div> -->
+								</div>
+						    </div>
+						</form>
+					</div>
+
+				</div><!--details_holder ends-->
+				<div class=" col-md-12 bottom_panel">
+					
+					<div class="signin" ng-click="showEstimation('report_template');savePoLineItem()" >Next</div>
+				</div>
+			</div><!--checklist_cont3 ends-->
+
+		</div><!--checklist_cont_feedback_wrap ends-->
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->
+<script type="text/javascript">
+	$('.form_col .inputBtn').on('mousedown touchstart',function(){
+		$(this).addClass('active');
+	})
+	$('.form_col .inputBtn').on('mouseup touchcancel',function(){
+		$(this).removeClass('active');
+	})
+	$('.bottom_panel .signin').on('mousedown touchstart', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.bottom_panel .signin').on('mouseup touchcancel', function(){
+		$(this).removeClass('activeNext');
+	})
+</script>
+<!-- <div class="container-fluid">
+	<div class="row content_box content_box_checklist">
+
+		<div class="header_bottom_part">
+
+			<div ng-include src="mainmenu"></div>
+		</div> 
+
+		<div class="checklist_cont_feedback_wrap" >
+			<div class="col-md-12 checklist_cont3">
+				<div class="checklist_cont3_left"><p>CHECKLIST</p></div>
+				<div class="checklist_cont3_right">
+					<ul>
+						<li>
+							<p>PO Generation</p>
+						</li>
+					</ul>
+					<div class="textarea po_tab">
+
+							<div class="col-md-4">
+								<div style="float:left;margin-right:30px">Trade: </div>
+								<select  class="poSelectTop" ng-model="po_form.trade" ng-options="item.TraderName for item in po_trade_details">
+								  <option value="" ng-if="false"></option>						  
+								</select>
+							</div>
+
+
+							<div class="col-md-4">
+								<div style="float:left;margin-right:10px">PO Type: </div>
+								<select class="poSelectTop"  ng-model="po_form.poType" ng-options="item.POTypeText for item in po_types">
+								  <option value="" ng-if="false"></option>	
+								</select>
+							</div>
+
+							<div class="col-md-12">
+								<div style="float:left;margin-right:10px">Note/Instruction: </div>
+								  <textarea class="po_note"></textarea>
+							</div>
+
+
+
+						<div class="po_details_holder col-md-12" style="margin-top:10px">
+							<div class="details_holder_heading">
+								<div class="col-md-1"><p>LINE ID</p></div>
+								<div class="col-md-1"><p>LOCATION</p></div>
+								<div class="col-md-1"><p>LOC DESC</p></div>
+								<div class="col-md-1"><p>LOC DIM</p></div>
+								<div class="col-md-1"><p>TRADE</p></div>
+								<div class="col-md-1"><p>SCOPE OF WORK</p></div>
+								<div class="col-md-1"><p>CHARGE UNIT</p></div>
+								<div class="col-md-1"><p>CHARGE PER UNIT</p></div>
+								<div class="col-md-1"><p>UNIT CHANRGED</p></div>
+								<div class="col-md-1"><p>UNIT COST</p></div>
+								<div class="col-md-1"><p>MATERIALS COST</p></div>
+								<div class="col-md-1"><p>TOTAL COST</p></div>
+							</div>
+
+							<div class="po_detail col-md-12" ng-repeat="item in po_line_item_array track by $index">
+								
+								<div class="col-md-1"><p>{{item.line_id}}</p></div>
+								<div class="col-md-1"><p>{{item.location}}</p></div>
+								<div class="col-md-1"><p>{{item.location_desc}}</p></div>
+								<div class="col-md-1"><p>{{item.location_dim}}</p></div>
+								<div class="col-md-1"><p>{{item.trade}}</p></div>
+								<div class="col-md-1"><p>{{item.sow}}</p></div>
+								<div class="col-md-1"><p>{{item.charge_unit}}</p></div>
+								<div class="col-md-1"><p>{{item.charge_per_unit}}</p></div>
+								<div class="col-md-1"><p>{{item.units_charged}}</p></div>
+								<div class="col-md-1"><p>{{item.units_cost}}</p></div>
+								<div class="col-md-1"><p>{{item.materials}}</p></div>
+								<div class="col-md-1"><p>{{item.total_cost}}</p></div>
+							
+							</div>
+							<div class="po_detail col-md-12">
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.line_id"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.location"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.location_desc"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.location_dim"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.trade"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.sow"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.charge_unit"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.charge_per_unit"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.units_charged"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.units_cost"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.materials"></p></div>
+								<div class="col-md-1"><p><input type="text" name="" class="po_form" ng-model="po_line_item_to_add.total_cost"></p></div>
+									
+								<div class="col-md-12">
+									<div class="col-md-3">
+										<div style="float:left;margin-right:5px">Start Date: </div>
+										<input type="text" name="">
+									</div>
+
+									<div class="col-md-3">
+										<div style="float:left;margin-right:5px">Finish Date: </div>
+										<input type="text" name="">
+									</div>
+									<div class="col-md-6 po_form_btn">
+										
+										<input type="button" name="insert" class="inputBtn" value="INSERT" ng-click="add_po_line_item(po_line_item_to_add)">
+										<input type="button" name="cancel"  class="inputBtn" value="CANCEL" ng-click="clear_po_line_item()">
+									</div>
+								</div>
+							</div>										
+						</div>
+					</div>
+					<div class="feedback_bottom_panel bottom_panel">									
+						<div class="signin" ng-click="showEstimation('report_template')">Next</div>
+					</div>
+
+			</div>
+		
+
+
+	</div><!--row ends-->
+</div><!--container ends-->
+<script type="text/javascript">
+	$('.po_form_btn .inputBtn ').on('mousedown touchstart',function(){
+		$(this).addClass('active');
+	})
+	$('.po_form_btn .inputBtn').on('mouseup touchcancel',function(){
+		$(this).removeClass('active');
+	})
+	$('.feedback_bottom_panel .signin').on('mousedown touchstart', function(){
+		$(this).addClass('activeNext');
+	})
+	$('.feedback_bottom_panel .signin').on('mouseup touchcancel', function(){
+		$(this).removeClass('activeNext');
+	})
+
+</script>		 -->

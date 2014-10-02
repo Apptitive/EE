@@ -1,0 +1,87 @@
+
+<h4>Broken Glass – Shower Base</h4>
+<h4>Claimed Incident:</h4>
+<p id="ClaimedIncident">Insured has advised the shower base has cracked.</p>
+
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+<div id="BuildersAssessmentCause">Inspection completed by 
+	<input type="text" placeholder="Name" ng-model="reportForm.estimatorName" ng-init="reportForm.estimatorName=m_username"> on {{pageContent.jobinfo.DateTimeOfVisit}}  in the presence of 
+	<input type="text" placeholder="Name" ng-model="reportForm.clientName" >
+	<h4>Relationship:</h4>
+	<select id="" ng-model="reportForm.relation" ng-init="reportForm.relation = 1">
+		<option value="1" >The insured owner</option>
+		<option value="2">The real estate agent</option>
+		<option value="3">The tanent</option>
+		<option value="4">Family friend</option>
+		<option value="5">A relative of the insured</option>
+		<option value="6">Other</option>
+	</select>
+	<p ng-show ="reportForm.relation == '6'">Other: <input type="text" ng-model="reportForm.otherRelation"></p>
+</div>
+<span >
+	<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+	<select id="ResultantDamage" ng-model="reportForm.ResultantDamage" ng-init="reportForm.ResultantDamage = 1" >
+		<option value="1">shower base.</option>
+		<option value="2">floor surrounding the shower recess</option>
+		<option value="3">shower base and wall tiles</option>
+		<option value="4">Other</option>
+	</select>
+	<p ng-show ="reportForm.ResultantDamage == '4'">Other: <input type="text" ng-model="reportForm.otherResultantDamage"></p>
+</span>
+
+<h4>Condition of property:</h4>
+<select id="ConditionProperty" ng-model="reportForm.ConditionProperty" ng-init="reportForm.ConditionProperty = 1">
+	<option value="1">Inspection of the fractured shower base revealed the overall condition of the shower recess to be well maintained with no obvious general wear and tear/maintenance issues to report.</option>
+	<option value="2">Inspection of the fractured shower base revealed the overall condition of the shower recess to be in poor condition and suffering from deterioration due to general wear and tear.</option>
+	<option value="3">Inspection of the fracture shower base revealed the crack appears to have been present for an extended period of time and allowing water to leak into the sub-floor over.</option>
+	<option value="4">Inspection of the fractured shower base revealed the fracture is consistent with unintentional impact by the insured which has resulted in the fracture to the base.</option>
+	<option value="5">Inspection of the fractured shower base revealed ---.</option>
+</select>
+<p ng-show ="reportForm.ConditionProperty == '5'">Text : <input type="text" ng-model="reportForm.otherConditionProperty"></p>
+
+<h4>Fracture:</h4>
+<select id="Fracture" ng-model="reportForm.Fracture" ng-init="reportForm.Fracture = 1">
+	<option value="1">The fracture to the shower base appears to extend through its entire thickness.</option>
+	<option value="2">The fracture to the shower base does not appear to extend through its entire thickness.</option>
+</select>
+
+<h4>Contents: </h4>
+<select id="WereContentsInvolved" ng-model="reportForm.WereContentsInvolved" ng-init="reportForm.WereContentsInvolved = 1">
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+</select>
+
+
+<div id="ActionFollowingIncident">
+	<p  ng-show="pageContent.form_riskhazard.IsMakeSafeRequired == 'True'">A makesafe has been carried out by Power Partners to temporarily secure the property.</p>
+	<p ng-show="form_assesment.IsNeighbouringFence == 'True'" >
+	The insured’s boundary fence was damaged during the claimed event. A cost has been provided to repair the boundary fence. Costs provided are 50% half share of the boundary fence and this component of the claim is recommended for cash settlement.  </p>
+</div>
+
+<h4>Maintenance</h4>
+<span id="Maintenance">
+	<p ng-show="form_assesment.IsMaintenance=='True'">The insured will be responsible for carrying out necessary repairs to the <input type="text" ng-model="reportForm.maintenance"> prior to the commencement of insurance repairs.</p>
+
+	<p ng-show="form_assesment.IsMaintenance!='True'">
+		No maintenance issues to report relating to this claim. </p>
+</span>
+
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<select id="ReasonForReferral"  ng-model="reportForm.ReasonForReferral" ng-init="reportForm.ReasonForReferral = 1" >
+	<option value="1">The claim is recommended as Accept and as the claim is within our Authority Limit and the resultant damage is consistent with a fractured shower base we will proceed with the repairs. </option>
+	<option value="2">The claim is submitted as “Unsure – Policy Coverage” as the damage sighted appears to be due to --- and as a result we cannot determine policy coverage.</option>
+	<option value="3">The damage to the fractured shower base appears to be due to --- and as a result the claim is recommended as Do not accept – Not covered.</option>
+	<option value="4">The claim is submitted as “Cancel Claim – Under Excess” as the damage sighted will cost less or is comparable in cost to the excess payable.</option>
+	<option value="5">The claim is submitted as “Cancel Claim – Client wishes to withdraw the claim due to ---.</option>
+	<option value="6">The claim is submitted as “Cancel Claim – No Resultant Damage” as no building damage has been sustained as a result of water ingress.</option>
+	<option value="7">The claim is submitted as “Accept – Review: Component of claim requires cash settlement” as the damage sighted is consistent with a fractured shower base however some of the damaged items consistent with the claim are recommended for cash settlement. A scope of works with these items along with a cash settlement figure has been provided separately. Costs provided include GST and builders margin.</option>
+	<option value="8">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with fractured shower base however the insured is seeking cash settlement for the claimed event.</option>
+</select>
+<p ng-show ="reportForm.ReasonForReferral == '9'">Other: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '2' || reportForm.ReasonForReferral == '3' || reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<!-- <p ng-show ="reportForm.ReasonForReferral == '3'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p> -->
+</br></br>

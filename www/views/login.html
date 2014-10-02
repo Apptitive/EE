@@ -1,0 +1,58 @@
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-7 baneer_left_cont">
+			<div class="row">
+				<div class="banner">
+					<div class="main_logo"><a href="#"><img src="images/main_logo.png"></a></div>
+					<img src="images/banner.png" class="banner_img">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-5 pull-right baneer_right_cont">
+			<div class="row">
+				<div class="banner_right">
+					<div class="banner_top">
+					<ul class="nav nav-tabs" role="tablist">
+					  <li class="active"><a href="#signin" class="signin" role="tab" data-toggle="tab">sign in</a></li>
+					  <li ><a href="#signup" class="signin" role="tab" data-toggle="tab">sign up</a></li>
+					 </ul>
+						
+					</div>
+					<div class="form_holder">
+						<div class="form_group" >
+						<div class="tab-content">
+						  <div class="tab-pane active" id="signin">
+						  	<label>Email:</label>
+							<input type="text" name="username" ng-model="m_email" placeholder="Email">
+							<label>Password:</label>
+							<input type="text" name="username" ng-model="m_password" placeholder="Password">
+							<input type="button" name="signin"  value="LOG IN" class="signin_btn" ng-click="login()">
+							<p class="forgot_pass"  ng-click="forgotPass()">Forgot password?</p>
+						  </div>
+						  <div class="tab-pane" id="signup">
+						  	<label>Full Name:</label>
+							<input type="text" name="username" ng-model="user.Username" placeholder="User Name">
+							<label>Email:</label>
+							<input type="text" name="username" ng-model="user.Email" placeholder="User Name">
+							<label>Password:</label>
+							<input type="text" name="username" ng-model = "user.Password"placeholder="Password">
+							<label>Password Confirmation:</label>
+							<input type="text" name="username"  placeholder="password">
+							<div class="backbtn"><a href="#signin"  class="signin_btn" role="tab" data-toggle="tab" ><p>BACK</p></a></div>
+							<input type="button" name="signin" ng-click="createNewUser()" value="SUBMIT" class="signin_btn">
+						  </div>
+						  
+						</div>
+							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div><!--row ends-->
+</div><!--container ends-->

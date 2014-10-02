@@ -1,0 +1,75 @@
+
+<h4>IMPACT - TREE</h4>
+<h4>Claimed Incident:</h4>
+<p id="ClaimedIncident">Tree has impacted the insured’s property.</p>
+
+<h4>Builders Assessment / Cause or Circumstances:</h4>
+<div id="BuildersAssessmentCause">Inspection completed by 
+	<input type="text" placeholder="Name" ng-model="reportForm.estimatorName"> on {{pageContent.jobinfo.DateTimeOfVisit}}  in the presence of 
+	<input type="text" placeholder="Name" ng-model="reportForm.clientName" >
+	<h4>Relationship:</h4>
+	<select id="" ng-model="reportForm.relation" ng-init="reportForm.relation = 1">
+		<option value="1" >The insured owner</option>
+		<option value="2">The real estate agent</option>
+		<option value="3">The tanent</option>
+		<option value="4">Family friend</option>
+		<option value="5">A relative of the insured</option>
+		<option value="6">Other</option>
+	</select>
+	<p ng-show ="reportForm.relation == '6'">Other: <input type="text" ng-model="reportForm.otherRelation"></p>
+</div>
+<span >
+	<p>We were directed to the area where the claimed damage had occurred.  Inspection of the property has revealed damage to the</p>
+
+	<select id="ResultantDamage" ng-model="reportForm.ResultantDamage" ng-init="reportForm.ResultantDamage = 1" >
+		<option value="1">main dwelling</option>
+		<option value="2">pergola</option>
+		<option value="3">boundary fence</option>
+		<option value="4">roof</option>
+		<option value="5">shed</option>
+		<option value="6">powerline and fascia</option>
+		<option value="7">Other</option>
+	</select>
+	<p ng-show ="reportForm.ResultantDamage == '7'">Other: <input type="text" ng-model="reportForm.otherResultantDamage"></p>
+	<p> as a result of impact from a tree.</p>
+</span>
+
+<h4>Contents: </h4>
+<select id="WereContentsInvolved" ng-model="reportForm.WereContentsInvolved" ng-init="reportForm.WereContentsInvolved = 1">
+	<option value="1">No contents were damaged as a result of the claimed event</option>
+	<option value="2">Contents have been damaged as a result of the claimed event</option>
+</select>
+
+<div id="ActionFollowingIncident">
+	<p  ng-show="pageContent.form_riskhazard.IsMakeSafeRequired == 'True'">A makesafe has been carried out by Power Partners to temporarily secure the property. </p>
+
+	<p ng-show="form_assesment.IsNeighbouringFence == 'True'" >
+	The insured’s boundary fence was damaged during the claimed event. A cost has been provided to repair the boundary fence. Costs provided are 50% half share of the boundary fence and this component of the claim is recommended for cash settlement. </p>
+</div>
+</br>
+
+<h4>Maintenance</h4>
+<span id="Maintenance">
+	<p ng-show="form_assesment.IsMaintenance=='True'">The insured will be responsible for carrying out necessary repairs to the <input type="text" ng-model="reportForm.maintenance"> prior to the commencement of insurance repairs.</p>
+
+	<p ng-show="form_assesment.IsMaintenance!='True'">
+		No maintenance issues to report relating to this claim. </p>
+</span>
+<h4>Claim / Reason for Referral to Insurer:</h4>
+<h5>Claim Recommendation</h5>
+
+<select id="ReasonForReferral"  ng-model="reportForm.ReasonForReferral" ng-init="reportForm.ReasonForReferral = 1" >
+	<option value="1">The sighted damage is consistent with impact by a tree and within our Authority Limit and as such we are submitting the claim as Accept and will proceed with repairs.</option>
+	<option value="2">The damage sighted does not appear to be consistent with impact by a tree and appears to be due to ---. and as a result the claim is recommended as Do not accept – Not covered.</option>
+	<option value="3">The claim is submitted as “Accept – Review: Cannot warrant the work” as there is pre-existing damage to the ---. which is unrelated to the impact claim.</option>
+	<option value="5">The claim is submitted as “Cancel Claim – Client wishes to withdraw the claim due to ---.</option>
+	<option value="4">The claim is submitted as “Cancel Claim – Under Excess” as the damage sighted will cost less/and or comparable in cost to the excess payable.</option>
+	<option value="6">The claim is submitted as “Accept – Review: Component of claim requires cash settlement” as the damage sighted is consistent with tree impact however some of the damaged items consistent with the claim are recommended for cash settlement. A scope of works with these items along with a cash settlement figure has been provided separately. Costs provided include GST and builders margin.</option>
+	<option value="7">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with tree impact however the insured is seeking cash settlement for the claimed event.</option>
+	<option value="8">The claim is submitted as “Accept – Review: Client seeks alternate settlement method” as the damage sighted is consistent with strong winds during a defined storm event however the insured is seeking cash settlement for the claimed event.</option>
+</select>
+<p ng-show ="reportForm.ReasonForReferral == '9'">Other: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '2' || reportForm.ReasonForReferral == '3' || reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<!-- <p ng-show ="reportForm.ReasonForReferral == '3'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p>
+<p ng-show ="reportForm.ReasonForReferral == '5'">Due to: <input type="text" ng-model="reportForm.otherReasonForReferral"></p> -->
+</br></br>
